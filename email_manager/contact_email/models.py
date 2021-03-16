@@ -11,12 +11,5 @@ class ContactEmail(models.Model):
     class Meta:
         verbose_name = 'Email'
         verbose_name_plural = 'Emails'
-
-    def __str__(self):
-        return self.email
+        ordering = ['name']
     
-    def get_full_name(self):
-        return str(self)
-
-    def get_short_name(self):
-        return str(self).split(' ')[0]

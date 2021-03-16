@@ -4,7 +4,7 @@ from email_manager.email_list.api.serializers import EmailListSerializer
 
 
 class MessageSerializer(ModelSerializer):
-    email_list = EmailListSerializer()
+    #email_list = EmailListSerializer()
     
     class Meta:
         model = Message

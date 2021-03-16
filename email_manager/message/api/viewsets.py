@@ -17,10 +17,12 @@ class MessageViewSet(ModelViewSet):
         subject = request.POST.get('subject', None)
         body = request.POST.get('body', None)
         to = request.POST.get('sender_email', None)
+        email_list = request.POST.get('email_list', {})
+        print(email_list)
         send_mail(
             subject,
             body,
             to,
-            ['dan.dluis.dl@gmail.com'],
+            email_list,
             fail_silently=False,
         )
