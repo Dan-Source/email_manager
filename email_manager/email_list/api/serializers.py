@@ -4,7 +4,7 @@ from email_manager.email_list.models import EmailList
 
 
 class EmailListSerializer(ModelSerializer):
-    emails = ContactEmailSerializer(many=True)
+    #emails = ContactEmailSerializer(many=True)
 
     class Meta:
         model = EmailList

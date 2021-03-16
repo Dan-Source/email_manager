@@ -12,4 +12,9 @@ class ContactEmail(models.Model):
         verbose_name = 'Email'
         verbose_name_plural = 'Emails'
         ordering = ['name']
+
+    def __str__(self):
+        return self.email
+
+    
     

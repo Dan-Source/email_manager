@@ -23,6 +23,6 @@ class MessageViewSet(ModelViewSet):
             subject,
             body,
             to,
-            email_list,
+            ['daniel.dluis.dl@gmail.com'],
             fail_silently=False,
         )
