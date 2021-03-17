@@ -11,3 +11,6 @@ class MessageSerializer(ModelSerializer):
         fields = (
             'id', 'subject', 'body', 'sender_email', 'email_list'
         )
+
+    def update(self, instance, validated_data):
+        pass

@@ -12,17 +12,32 @@ class MessageViewSet(ModelViewSet):
     filter_backends = [filters.SearchFilter]
     search_fields = ['subject', 'message', 'sender_email']
 
-    @action(methods=['post'], detail=False)
+    @action(methods=['put'], detail=True)
     def send_email_message(self, request):
         subject = request.POST.get('subject', None)
         body = request.POST.get('body', None)
-        to = request.POST.get('sender_email', None)
-        email_list = request.POST.get('email_list', {})
-        print(email_list)
+        sender = request.POST.get('sender_email', None)
+        to = 'dan.dluis.dl@gmail.com'  #request.POST.get('email_list', None)
+        
         send_mail(
             subject,
             body,
+            sender,
             to,
-            ['daniel.dluis.dl@gmail.com'],
             fail_silently=False,
         )
+
+    @action(methods=['post'], detail=False)
+    def send_test_email(self, request):
+        subject = "Testando Envio de E-mail Com Django"
+        body = "Que coisas não podermos enviar isso. "
+        sender = 'webmaster@teste.com'
+        to = ['dan.dluis.dl@gmail.com'] #request.POST.get('email_list', None)
+        send_mail(
+            subject,
+            body,
+            sender,
+            to,
+            fail_silently=False,
+        )
+
